@@ -70,7 +70,7 @@ describe("TrendInterest", function () {
 
         it("Should email duplicate", async () => {
             const { trendInterest } = await deployTrendInterest();
-            const data = [{ email: "manhvd1507@gmail.com", trend: "Bitcoin" }, { email: "manhvd15@gmail.com", trend: "Ethereum" }];
+            const data = [{ email: "manhvd1507@gmail.com", trend: "Bitcoin" }, { email: "manhvd1507@gmail.com", trend: "Ethereum" }];
             await trendInterest.RegisterInterest(data[0].email, data[0].trend)
             const tx = trendInterest.RegisterInterest(data[1].email, data[1].trend)
 
