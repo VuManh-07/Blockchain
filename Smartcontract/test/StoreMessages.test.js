@@ -14,7 +14,7 @@ describe("StoreMessages", function () {
         it("Nên triển khai thành công và có địa chỉ hợp lệ", async () => {
             const { storeMessages } = await deployStoreMsg();
 
-            expect(storeMessages.address).to.not.equal("0x0000000000000000000000000000000000000000")
+            expect(storeMessages.target).to.not.equal(undefined)
         })
 
         it("Nên là owner set/get msg", async () => {

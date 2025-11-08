@@ -1,6 +1,6 @@
 const { expect } = require("chai")
 
-describe("TrendInterestAddvance", function () {
+describe("TrendInterestAdvance", function () {
     const deployTrendInterest = async () => {
         const [owner, otherAccount] = await ethers.getSigners();
         const TrendInterest = await ethers.getContractFactory("TrendInterestAdvance");
@@ -13,7 +13,7 @@ describe("TrendInterestAddvance", function () {
         it("Should deploy sc success", async () => {
             const { trendInterest } = await deployTrendInterest();
 
-            expect(trendInterest.address).to.not.equal("0x0000000000000000000000000000000000000000")
+            expect(trendInterest.target).to.not.equal(undefined)
         })
     })
 
@@ -78,7 +78,7 @@ describe("TrendInterestAddvance", function () {
             expect(interests[0].email).to.equal(data[0].email)
             expect(interests[0].trend).to.equal(data[0].trend)
 
-            expect(tx).to.be.revertedWith("Email duplicate")
+            await expect(tx).to.be.revertedWithCustomError(trendInterest, "EmailAlreadyRegistered")
         })
     })
 })

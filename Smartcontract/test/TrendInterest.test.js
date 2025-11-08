@@ -13,7 +13,7 @@ describe("TrendInterest", function () {
         it("Should deploy sc success", async () => {
             const { trendInterest } = await deployTrendInterest();
 
-            expect(trendInterest.address).to.not.equal("0x0000000000000000000000000000000000000000")
+            expect(trendInterest.target).to.not.equal(undefined)
         })
     })
 
